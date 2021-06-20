@@ -14,6 +14,9 @@ s3_client.list_all_buckets()
 
 # s3_client.list_all_buckets()
 # s3_client.create_bucket("melosrilat2")
+#
+# s3_client.bucket_object_list("josieandthecats")
+# s3_client.bucket_object_list("mel-bucket22")
 
-s3_client.bucket_object_list("josieandthecats")
-s3_client.bucket_object_list("mel-bucket22")
+# s3_client.delete_bucket('name-mel')
+

@@ -80,6 +80,17 @@ class S3_Client:
     def create_bucket(self, bucket_name):
         self.s3_resource.create_bucket(Bucket=bucket_name)
 
+    """Delete Bucket
+    :param bucket_name: Name of new bucket
+    """
+    def delete_bucket(self, bucket_name):
+        # call method to access bucket first and
+        # only then delete -- method to be built
+        bucket = self.s3_resource.Bucket(bucket_name)
+        for key in bucket.objects.all():
+            key.delete()
+        bucket.delete()
+
     """
     Copy bucket contents to another
     :param bucket_name_source: Name of source bucket
@@ -100,3 +111,20 @@ class S3_Client:
     def list_all_buckets(self):
         for bucket in self.s3_resource.buckets.all():
             print(bucket.name)
+
+    """Accessing a bucket
+    """
+    def access_bucket(self, bucket_name):
+        # # Boto3
+        # import botocore
+        # bucket = s3.Bucket('mybucket')
+        # exists = True
+        # try:
+        #     s3.meta.client.head_bucket(Bucket='mybucket')
+        # except botocore.exceptions.ClientError as e:
+        #     # If a client error is thrown, then check that it was a 404 error.
+        #     # If it was a 404 error, then the bucket does not exist.
+        #     error_code = e.response['Error']['Code']
+        #     if error_code == '404':
+        #         exists = False
+        pass
