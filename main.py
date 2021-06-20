@@ -3,7 +3,7 @@ from awsboto3 import S3_Client
 
 
 s3_client = S3_Client()
-s3_client.assume_role("arn:aws:iam::465523221317:role/melos-s3-role")
+s3_client.assume_role("arn:aws:iam::######:role/melos-s3-role")
 
 # s3_client.upload_file("/Users/meldsilva/Documents/mel/large-dummyfile.txt",
 #                       "josieandthecats",
